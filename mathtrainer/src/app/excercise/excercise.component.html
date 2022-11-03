@@ -1,0 +1,17 @@
+<div class="questions">
+  <h2>Questions</h2>
+  <a routerLink="/settings">Settings</a>
+  <div>
+    <button (click)="newQuestions()">Generate New Questions</button>
+  </div>
+  <div *ngFor="let question of this.questionStrings; let i = index">
+    <label>
+      <p>
+        {{question}}
+        <input type="number" [(ngModel)]="answerToQuestion[i]">
+        <a [style]="evalStyle[evaluations[i]]" [hidden]="!evaluations[i]">{{evaluations[i]}} a:{{questionAnswers[i]}}</a>
+      </p>
+    </label>
+  </div>
+  <button [hidden]="this.questionAnswers.length === 0" [disabled]="!hasAllAnswers()" (click)="evaluate()">Evaluate</button>
+</div>
