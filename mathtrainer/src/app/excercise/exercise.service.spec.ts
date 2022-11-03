@@ -13,4 +13,18 @@ describe('ExerciseService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should evaluate correctly', () => {
+    service.questionAnswers = [1, 2, 3, 4, 5];
+    service.answerToQuestion = [1, 2, 3, 4, 5];
+    service.evaluate();
+    expect(service.evaluations).toEqual(['correct', 'correct', 'correct', 'correct', 'correct']);
+  });
+
+  it('should evaluate incorrectly', () => {
+    service.questionAnswers = [1, 2, 3, 4, 5];
+    service.answerToQuestion = [1, 2, 3, 4, 6];
+    service.evaluate();
+    expect(service.evaluations).toEqual(['correct', 'correct', 'correct', 'correct', 'incorrect']);
+  });
 });
