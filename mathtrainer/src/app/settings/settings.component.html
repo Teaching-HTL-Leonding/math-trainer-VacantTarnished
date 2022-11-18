@@ -1,0 +1,31 @@
+<div class="selects">
+  <h2>Settings</h2>
+  <div>
+    <label>
+      Number of Digits:
+      <select  [(ngModel)]="settings.amountOfDigits">
+        <option *ngFor="let number of settings.digits" [ngValue]="number">{{number}}</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>
+      Number of Questions:
+      <select [(ngModel)]="settings.amountOfQuestions">
+        <option *ngFor="let number of settings.questions" [ngValue]="number">{{number}}</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>
+      Operators:
+      <br>
+        <label *ngFor="let operator of settings.operators; let i = index">
+          {{operator}}
+          <input type="checkbox" [disabled]="!canUncheck(operator)" [(ngModel)]="settings.selectedOperators[i]">
+          <br>
+        </label>
+    </label>
+  </div>
+  <a routerLink="/excercise">Exercise</a>
+</div>

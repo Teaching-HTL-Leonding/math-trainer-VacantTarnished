@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  background-color: grey;
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center
+}
+
+.selects {
+  text-align: center;
+  font-size: 120%;
+}
+
+.questions {
+  text-align: center;
+  font-size: 120%;
+}
+
+.evaluation {
+  text-align: center;
+  font-size: 120%;
+}
+
+
+button {
+  color: white;
+  border-color: black;
+  background-color:darkcyan;
+}

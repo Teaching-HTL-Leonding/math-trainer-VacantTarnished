@@ -1,0 +1,50 @@
+<div>
+  <h1>Math Trainer</h1>
+  <div>
+    <div class="selects">
+      <h2>Settings</h2>
+      <div>
+        <label>
+          Number of Digits:
+          <select  [(ngModel)]="amountOfDigits">
+            <option *ngFor="let number of digits" [ngValue]="number">{{number}}</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>
+          Number of Questions:
+          <select [(ngModel)]="amountOfQuestions">
+            <option *ngFor="let number of questions" [ngValue]="number">{{number}}</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>
+          Operators:
+          <div>
+            <label *ngFor="let operator of operators; let i = index">
+              <input type="checkbox" [(ngModel)]="selectedOperators[i]">
+              {{operator}}
+            </label>
+          </div>
+        </label>
+      </div>
+      <button (click)="newQuestions()">Generate New Questions</button>
+    </div>
+
+    <div class="questions">
+      <h2>Questions</h2>
+      <div *ngFor="let question of this.questionStrings; let i = index">
+        <label>
+          <p>
+            {{question}}
+            <input type="number" [(ngModel)]="answerToQuestion[i]">
+            <a [style]="evalStyle[evaluations[i]]" [hidden]="!evaluations[i]">{{evaluations[i]}} a:{{questionAnswers[i]}}</a>
+          </p>
+        </label>
+      </div>
+      <button [hidden]="this.questionAnswers.length === 0" (click)="evaluate()">Evaluate</button>
+    </div>
+  </div>
+</div>
